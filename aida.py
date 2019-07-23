@@ -112,7 +112,7 @@ def room_info():
 def choose_station():
     my_station = request.args.get('from_station')
     friend_station = request.args.get('to_station')
-    result = search("東京駅", "渋谷駅")
+    result = search(my_station, friend_station)
     data=result.stations
     off = len(data) // 2
     name=data[off]
