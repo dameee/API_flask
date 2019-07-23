@@ -37,5 +37,6 @@ def search(from_station:str, to_station:str) -> ResultData:
     return ResultData(sta_list, price)
 
 if __name__ == "__main__":
+    print(requests)
     result = search("東京駅", "渋谷駅")
     print(result.cost, result.stations)
