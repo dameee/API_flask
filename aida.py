@@ -14,6 +14,11 @@ servicePassword = "3aa0704505b49cc78210b107a20202af14d94c98aed2ac4ece4b47789f311
 serviceURL = "https://2abcc976-5f46-4e6b-9500-115955bec194-bluemix:3aa0704505b49cc78210b107a20202af14d94c98aed2ac4ece4b47789f311d44@2abcc976-5f46-4e6b-9500-115955bec194-bluemix.cloudantnosqldb.appdomain.cloud"
 databaseName = "aida"
 
+@app.route('/')
+def hello_world():
+    output="hello"
+    return jsonify(output)
+
 @app.route('/makeroom', methods=['GET', 'POST'])
 def makeroom():
     # 接続
