@@ -6,7 +6,6 @@ from cloudant.result import Result, ResultByKey
 import random
 from parser import search
 
-
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
