@@ -16,7 +16,10 @@ databaseName = "aida"
 
 @app.route('/')
 def hello_world():
-    output="hello"
+    output={
+    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での経路を取得して返す": "https://morning-bayou-25552.herokuapp.com/station?from_station=乗車駅&to_station=降車駅",
+    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での値段を取得して返す": "https://morning-bayou-25552.herokuapp.com/price?from_station=乗車駅&to_station=降車駅"
+    }
     return jsonify(output)
 
 @app.route('/makeroom', methods=['GET', 'POST'])
@@ -123,6 +126,31 @@ def choose_station():
         "station_match": {"name": name},
         "from_station_route": my_station_route,
         "to_station_route": friend_station_route
+    }
+    return jsonify(output)
+
+@app.route('/station', methods=['GET', 'POST'])
+def station():
+    my_station = request.args.get('from_station')
+    friend_station = request.args.get('to_station')
+    result = search(my_station, friend_station)
+    data=result.stations
+    my_station_route=data
+
+    output={
+        "路線ルート": my_station_route
+    }
+    return jsonify(output)
+
+@app.route('/price')
+def price():
+    from_station = request.args.get('from_station')
+    to_station = request.args.get('to_station')
+    result = search(from_station, to_station)
+    price=result.cost
+    #price=240
+    output={
+    "price": price
     }
     return jsonify(output)
 
