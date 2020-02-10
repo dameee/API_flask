@@ -17,8 +17,8 @@ databaseName = "aida"
 @app.route('/')
 def hello_world():
     output={
-    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での経路を取得して返す": "https://morning-bayou-25552.herokuapp.com/station?from_station=乗車駅&to_station=降車駅",
-    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での値段を取得して返す": "https://morning-bayou-25552.herokuapp.com/price?from_station=乗車駅&to_station=降車駅"
+    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での経路を取得して返す": "https://yahoo-train.herokuapp.com/station?from_station=乗車駅&to_station=降車駅",
+    "Yahoo!路線情報から乗車駅から降車駅までの現在時刻での値段を取得して返す": "https://yahoo-train.herokuapp.com/price?from_station=乗車駅&to_station=降車駅"
     }
     return jsonify(output)
 
